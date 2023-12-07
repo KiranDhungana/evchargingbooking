@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -117,13 +119,17 @@ class UserController extends Controller
         if (!$otpData) {
             return response()->json(['success' => false, 'msg' => 'You entered wrong OTP']);
         } else {
+            // dd($user);
+            $user['email_verified_at'] = now();
+            $user->save();
 
             $currentTime = time();
             $time = $otpData->created_at;
 
             if ($currentTime >= $time && $time >= $currentTime - (90 + 5)) { //90 seconds
                 User::where('id', $user->id)->update([
-                    'is_verified' => 1
+                    'is_verified' => 1,
+
                 ]);
                 return response()->json(['success' => true, 'msg' => 'Mail has been verified']);
             } else {
@@ -150,4 +156,22 @@ class UserController extends Controller
         }
 
     }
+
+    public function logout()
+    {
+        Session::flush();
+        return redirect('/');
+    }
+
+
+
+
+    public function test()
+    {
+        $timestamp = 1701965382;
+        $result = $this->convertTimestampToYearMonth($timestamp);
+        dd($result);
+    }
+
+
 }

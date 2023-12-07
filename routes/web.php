@@ -31,3 +31,5 @@ Route::post('/verified', [UserController::class, 'verifiedOtp'])->name('verified
 Route::get('/dashboard', [UserController::class, 'loadDashboard']);
 
 Route::get('/resend-otp', [UserController::class, 'resendOtp'])->name('resendOtp');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/test', [UserController::class, 'test'])->name('test');
