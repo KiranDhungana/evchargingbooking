@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/register', [UserController::class, 'loadRegister']);
+Route::post('/register', [UserController::class, 'studentRegister'])->name('studentRegister');
+Route::get('/login', function () {
+    return redirect('/');
+});
+Route::get('/', [UserController::class, 'loadLogin']);
+Route::post('/login', [UserController::class, 'userLogin'])->name('userLogin');
+
+Route::get('/verification/{id}', [UserController::class, 'verification']);
+Route::post('/verified', [UserController::class, 'verifiedOtp'])->name('verifiedOtp');
+Route::get('/dashboard', [UserController::class, 'loadDashboard']);
+
+Route::get('/resend-otp', [UserController::class, 'resendOtp'])->name('resendOtp');
