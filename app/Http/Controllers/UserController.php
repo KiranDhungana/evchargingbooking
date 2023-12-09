@@ -174,20 +174,31 @@ class UserController extends Controller
     }
     //   get user location 
 
-
     public function getUserLocation(Request $request)
     {
-
-
-
-
-        $locationData = Location::get('https://' . $request->ip());
-        $currentUserInfo = $locationData;
-        // dd($locationData);
-
-
-        return view('location', compact('currentUserInfo'));
+        return view('location');
     }
 
 
+    public function saveLocation(Request $request)
+    {
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+        dd($latitude, $longitude);
+        // Process and store the location data as needed
+
+        return response()->json(['success' => true]);
+    }
+    public function handleData(Request $request)
+    {
+        // return view('welcome');
+        // Handle the data received from the AJAX request
+        $data = $request->input('your_data');
+
+
+
+        // Process or save the data as needed
+
+        return response()->json($data);
+    }
 }
