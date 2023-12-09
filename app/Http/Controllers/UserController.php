@@ -21,6 +21,11 @@ class UserController extends Controller
         return view('register');
     }
 
+    public function test()
+    {
+        return view('test');
+    }
+
     public function studentRegister(Request $request)
     {
         $request->validate([
@@ -166,12 +171,12 @@ class UserController extends Controller
 
 
 
-    public function test()
-    {
-        $timestamp = 1701965382;
-        $result = $this->convertTimestampToYearMonth($timestamp);
-        dd($result);
-    }
+    // public function test()
+    // {
+    //     $timestamp = 1701965382;
+    //     $result = $this->convertTimestampToYearMonth($timestamp);
+    //     dd($result);
+    // }
 
 
 }
