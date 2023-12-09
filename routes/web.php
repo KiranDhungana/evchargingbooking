@@ -33,3 +33,4 @@ Route::get('/dashboard', [UserController::class, 'loadDashboard']);
 Route::get('/resend-otp', [UserController::class, 'resendOtp'])->name('resendOtp');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/test', [UserController::class, 'test'])->name('test');
+Route::get('/location', [UserController::class, 'getUserLocation'])->name('getUserLocation');

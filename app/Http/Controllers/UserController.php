@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Stevebauman\Location\Facades\Location;
+
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
@@ -171,6 +173,21 @@ class UserController extends Controller
         $timestamp = 1701965382;
         $result = $this->convertTimestampToYearMonth($timestamp);
         dd($result);
+    }
+    //   get user location 
+
+
+    public function getUserLocation(Request $request)
+    {
+
+
+        
+
+        $locationData = Location::get('https://' . $request->ip());
+        $currentUserInfo = $locationData;
+
+
+        return view('location', compact('currentUserInfo'));
     }
 
 
