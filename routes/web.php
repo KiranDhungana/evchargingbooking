@@ -14,16 +14,20 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// Route::get('/test', [UserController::class, 'test']);
 
 Route::get('/register', [UserController::class, 'loadRegister']);
 Route::post('/register', [UserController::class, 'studentRegister'])->name('studentRegister');
+Route::get('/', [UserController::class, 'loadLogin']);
 Route::get('/login', function () {
     return redirect('/');
 });
-Route::get('/', [UserController::class, 'loadLogin']);
+Route::get('/test', function () {
+    return redirect('/test');
+});
+
+
 Route::post('/login', [UserController::class, 'userLogin'])->name('userLogin');
 
 Route::get('/verification/{id}', [UserController::class, 'verification']);
