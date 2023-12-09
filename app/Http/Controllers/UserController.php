@@ -170,9 +170,7 @@ class UserController extends Controller
 
     public function test()
     {
-        $timestamp = 1701965382;
-        $result = $this->convertTimestampToYearMonth($timestamp);
-        dd($result);
+        return view('login1');
     }
     //   get user location 
 
@@ -185,6 +183,7 @@ class UserController extends Controller
 
         $locationData = Location::get('https://' . $request->ip());
         $currentUserInfo = $locationData;
+        // dd($locationData);
 
 
         return view('location', compact('currentUserInfo'));

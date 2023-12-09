@@ -13,7 +13,7 @@
     height="450"
     frameborder="0"
     style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?q={{ $currentUserInfo->latitude }},{{ $currentUserInfo->longitude }}&key=AIzaSyDqRk8ooQjKQgueGWQ485IjEO9t0-Y0CSQ"
+    src="https://www.google.com/maps/embed/v1/place?q={{ $currentUserInfo->countryName}},{{ $currentUserInfo->countryCode }}&key=AIzaSyDqRk8ooQjKQgueGWQ485IjEO9t0-Y0CSQ"
     allowfullscreen
 ></iframe>
 
@@ -22,8 +22,8 @@
         <div class="card-body">
             @if($currentUserInfo)
                 <h4>IP: {{ $currentUserInfo->ip }}</h4>
-                <h4>Country Name: {{ $currentUserInfo->countryName }}</h4>
-                <h4>Country Code: {{ $currentUserInfo->countryCode }}</h4>
+                <h4>Country Name: {{ (int)$currentUserInfo->countryName-0.02418 }}</h4>
+                <h4>Country Code: {{ (int)$currentUserInfo->countryCode+0.00415 }}</h4>
                 <h4>Region Code: {{ $currentUserInfo->regionCode }}</h4>
                 <h4>Region Name: {{ $currentUserInfo->regionName }}</h4>
                 <h4>City Name: {{ $currentUserInfo->cityName }}</h4>
