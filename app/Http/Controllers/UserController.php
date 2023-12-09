@@ -23,11 +23,6 @@ class UserController extends Controller
         return view('register');
     }
 
-    public function test()
-    {
-        return view('test');
-    }
-
     public function studentRegister(Request $request)
     {
         $request->validate([
@@ -173,7 +168,6 @@ class UserController extends Controller
 
 
 
-<<<<<<< HEAD
     public function test()
     {
         $timestamp = 1701965382;
@@ -187,7 +181,7 @@ class UserController extends Controller
     {
 
 
-        
+
 
         $locationData = Location::get('https://' . $request->ip());
         $currentUserInfo = $locationData;
@@ -195,14 +189,6 @@ class UserController extends Controller
 
         return view('location', compact('currentUserInfo'));
     }
-=======
-    // public function test()
-    // {
-    //     $timestamp = 1701965382;
-    //     $result = $this->convertTimestampToYearMonth($timestamp);
-    //     dd($result);
-    // }
->>>>>>> fe798aab739da1cced00c79d77264ed7f35e848d
 
 
 }
