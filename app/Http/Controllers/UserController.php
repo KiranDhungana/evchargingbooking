@@ -25,6 +25,7 @@ class UserController extends Controller
 
     public function studentRegister(Request $request)
     {
+        dd($request);
         $request->validate([
             'name' => 'string|required|min:2',
             'email' => 'string|email|required|max:100|unique:users',
@@ -189,16 +190,6 @@ class UserController extends Controller
     public function handleData(Request $request)
     {
 
-        $latitude = $request->input('latitude');
-        $longitude = $request->input('longitude');
-
-        // Handle the latitude and longitude as needed (e.g., save to database)
-
-        // You can return a response if needed
-        return response()->json(['success' => true]);
-
-        // // Process or save the data as needed
-
-        // return response()->json($data);
+        dd($request);
     }
 }

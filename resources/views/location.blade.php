@@ -22,8 +22,8 @@
     
     <form action="/location" method="post" >
     @csrf
-<input hidden id="latitude" name="latitude" type="int" value="" >    
-<input hidden id="longitude" name="longitude" type="int" value="" >    
+<input hidden id="latitude" name="latitude" type="int" value="afdsf" >    
+<input hidden id="longitude" name="longitude" type="int" value="fasdg" >    
 <button   type="submit"></button>
 </form>
 
@@ -53,6 +53,11 @@ Send
 
 <script>
   const successCallback = (position) => {
+
+var lat   =document.getElementById("latitude");
+var long   =document.getElementById("longitude");
+lat.value =position.coords.latitude;
+long.value=position.coords.longitude;
   console.log(position.coords.latitude);
   console.log(position.coords.longitude);
 };
@@ -62,6 +67,7 @@ const errorCallback = (error) => {
 };
 
 navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+
 </script>
   
 </body>
