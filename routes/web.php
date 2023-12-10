@@ -23,9 +23,17 @@ Route::get('/', [UserController::class, 'loadLogin']);
 Route::get('/login', function () {
     return redirect('/');
 });
-Route::get('/test', function () {
-    return redirect('/test');
+Route::get('/forgetpassword', function () {
+    return view ('forgetpassword');
 });
+Route::get('/signup', function () {
+    return view ('signup');
+});
+Route::get('/otp', function () {
+    return view ('otp');
+});
+
+
 
 
 Route::post('/login', [UserController::class, 'userLogin'])->name('userLogin');
