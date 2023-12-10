@@ -7,23 +7,24 @@
 </head>
 <body>
   
-<div class="container">
+{{-- <div class="container">
     <iframe
     width="600"
     height="450"
     frameborder="0"
     style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?q={{ $currentUserInfo->latitude }},{{ $currentUserInfo->longitude }}&key=AIzaSyDqRk8ooQjKQgueGWQ485IjEO9t0-Y0CSQ"
+    src="https://www.google.com/maps/embed/v1/place?q={{ $currentUserInfo->countryName}},{{ $currentUserInfo->countryCode }}&key=AIzaSyDqRk8ooQjKQgueGWQ485IjEO9t0-Y0CSQ"
     allowfullscreen
-></iframe>
+></iframe> --}}
 
     <h1>How to Get Current User Location with Laravel - ItSolutionStuff.com</h1>
-    <div class="card">
+    <button id="sendButton">Send Data</button>
+    {{-- <div class="card">
         <div class="card-body">
             @if($currentUserInfo)
                 <h4>IP: {{ $currentUserInfo->ip }}</h4>
-                <h4>Country Name: {{ $currentUserInfo->countryName }}</h4>
-                <h4>Country Code: {{ $currentUserInfo->countryCode }}</h4>
+                <h4>Country Name: {{ (int)$currentUserInfo->countryName-0.02418 }}</h4>
+                <h4>Country Code: {{ (int)$currentUserInfo->countryCode+0.00415 }}</h4>
                 <h4>Region Code: {{ $currentUserInfo->regionCode }}</h4>
                 <h4>Region Name: {{ $currentUserInfo->regionName }}</h4>
                 <h4>City Name: {{ $currentUserInfo->cityName }}</h4>
@@ -32,8 +33,39 @@
                 <h4>Longitude: {{ $currentUserInfo->longitude }}</h4>
             @endif
         </div>
-    </div>
+    </div> --}}
 </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#sendButton').on('click', function() {
+            // Your data to be sent to the controller
+            var yourData = { latitide: 'asfsd' };
+
+            // Make an AJAX request
+            $.ajax({
+                type: 'post',
+                url: '{{ route("send.data") }}',
+                data: {
+                    '_token': '{{ csrf_token() }}', // Include CSRF token for Laravel
+                    'your_data': yourData
+                },
+                success: function(response) {
+                    // Handle the response from the controller
+                    console.log(response);
+                },
+                error: function(error) {
+                    // Handle errors
+                    console.error('Error:', error);
+                }
+            });
+        });
+    });
+</script>
   
 </body>
 
