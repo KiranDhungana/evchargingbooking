@@ -18,7 +18,18 @@
 ></iframe> --}}
 
     <h1>How to Get Current User Location with Laravel - ItSolutionStuff.com</h1>
-    <button id="sendButton">Send Data</button>
+    <button>Send Data</button>
+    
+    <form action="/location" method="post" >
+    @csrf
+<input hidden id="latitude" name="latitude" type="int" value="" >    
+<input hidden id="longitude" name="longitude" type="int" value="" >    
+<button   type="submit"></button>
+</form>
+
+<button  id="sendButton" >
+Send
+</button>
     {{-- <div class="card">
         <div class="card-body">
             @if($currentUserInfo)
@@ -41,30 +52,16 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-    $(document).ready(function() {
-        $('#sendButton').on('click', function() {
-            // Your data to be sent to the controller
-            var yourData = { latitide: 'asfsd' };
+  const successCallback = (position) => {
+  console.log(position.coords.latitude);
+  console.log(position.coords.longitude);
+};
 
-            // Make an AJAX request
-            $.ajax({
-                type: 'post',
-                url: '{{ route("send.data") }}',
-                data: {
-                    '_token': '{{ csrf_token() }}', // Include CSRF token for Laravel
-                    'your_data': yourData
-                },
-                success: function(response) {
-                    // Handle the response from the controller
-                    console.log(response);
-                },
-                error: function(error) {
-                    // Handle errors
-                    console.error('Error:', error);
-                }
-            });
-        });
-    });
+const errorCallback = (error) => {
+  console.log(error);
+};
+
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 </script>
   
 </body>

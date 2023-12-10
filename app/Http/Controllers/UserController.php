@@ -168,10 +168,7 @@ class UserController extends Controller
 
 
 
-    public function test()
-    {
-        return view('login1');
-    }
+
     //   get user location 
 
     public function getUserLocation(Request $request)
@@ -191,14 +188,17 @@ class UserController extends Controller
     }
     public function handleData(Request $request)
     {
-        // return view('welcome');
-        // Handle the data received from the AJAX request
-        $data = $request->input('your_data');
 
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
 
+        // Handle the latitude and longitude as needed (e.g., save to database)
 
-        // Process or save the data as needed
+        // You can return a response if needed
+        return response()->json(['success' => true]);
 
-        return response()->json($data);
+        // // Process or save the data as needed
+
+        // return response()->json($data);
     }
 }

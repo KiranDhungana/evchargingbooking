@@ -24,13 +24,13 @@ Route::get('/login', function () {
     return redirect('/');
 });
 Route::get('/forgetpassword', function () {
-    return view ('forgetpassword');
+    return view('forgetpassword');
 });
 Route::get('/signup', function () {
-    return view ('signup');
+    return view('signup');
 });
 Route::get('/otp', function () {
-    return view ('otp');
+    return view('otp');
 });
 
 
@@ -47,4 +47,4 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/test', [UserController::class, 'test'])->name('test');
 Route::get('/location', [UserController::class, 'getUserLocation'])->name('getUserLocation');
 Route::post('/save-location', [UserController::class, 'savelocation'])->name('getUserLocation');
-Route::post('/location', [UserController::class, 'handleData'])->name('send.data');
+Route::post('/location', [UserController::class, 'handleData'])->name('store');
