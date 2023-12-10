@@ -32,6 +32,9 @@ Route::get('/signup', function () {
 Route::get('/otp', function () {
     return view ('otp');
 });
+Route::get('/contact', function () {
+    return view ('contact');
+});
 
 
 
