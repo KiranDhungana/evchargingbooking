@@ -36,22 +36,29 @@
   </div>
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" action="#" method="POST">
-      <div>
+    <form class="space-y-6" action="/forgetpassword" method="POST">
+      @csrf
+        <div>
+          <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+          <div class="mt-2">
+            <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+      {{-- <div>
         <label for="pswd" class="block text-sm font-medium leading-6 text-gray-900">New Password</label>
         <div class="mt-2">
-          <input id="pswd" name="pswd" type="text" autocomplete="pswd" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <input id="pswd" name="password" type="text" autocomplete="pswd" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
         </div>
-      </div>
+      </div> --}}
 
-      <div>
+      {{-- <div>
         <div class="flex items-center justify-between">
           <label for="comfirm_pswd" class="block text-sm font-medium leading-6 text-gray-900">Confirm New Password</label>
         </div>
         <div class="mt-2">
-          <input id="comfirm_pswd" name="comfirm_pswd" type="comfirm_pswd" autocomplete="current-comfirm_pswd" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo sm:text-sm sm:leading-6">
+          <input id="comfirm_pswd" name="password_confirmation" type="comfirm_pswd" autocomplete="current-comfirm_pswd" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo sm:text-sm sm:leading-6">
         </div>
-      </div>
+      </div> --}}
 
       <div>
         <button type="submit" class="flex w-full justify-center rounded-md bg-indigo px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo">Update Password</button>

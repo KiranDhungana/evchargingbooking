@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\EmailVerification;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Mail;
 
@@ -25,16 +26,30 @@ class UserController extends Controller
 
     public function studentRegister(Request $request)
     {
-        dd($request);
+        $gen = 1;
+        if ($request->input('gender') == "male") {
+            $gen = 1;
+        } else {
+            $gen = 0;
+        }
+
         $request->validate([
-            'name' => 'string|required|min:2',
+
             'email' => 'string|email|required|max:100|unique:users',
-            'password' => 'string|required|confirmed|min:6'
+            'password' => 'string|required|confirmed|min:6',
+            'pnumber' => 'unique:users'
         ]);
 
         $user = new User;
-        $user->name = $request->name;
+        $user->fname = $request->fname;
         $user->email = $request->email;
+        $user->lname = $request->lname;
+        $user->pnumber = $request->pnumber;
+        $user->address = $request->address;
+        $user->address = $request->address;
+        $user->dob = $request->dob;
+        $user->gender = $gen;
+        $user->password = Hash::make($request->password);
         $user->password = Hash::make($request->password);
         $user->save();
 
@@ -48,6 +63,87 @@ class UserController extends Controller
         }
         return view('login');
     }
+
+
+    //    forget  password
+    public function changepassword()
+    {
+        return view('forgetpassword');
+    }
+    public function resetpassword(Request $req)
+    {
+        $email = $req->email;
+
+        $emailExists = User::where('email', $email)->exists() && User::where('is_verified', 1)->exists();
+
+        if ($emailExists) {
+            $user = User::where('email', $email)
+                ->where('is_verified', 1)
+
+                ->first();
+            $userid = $user['id'];
+
+            return redirect("/changepasswordnew/" . $userid);
+        }
+        ;
+        return view('forgetpassword');
+    }
+
+    public function changepasswordnew($id)
+    {
+        $user = User::where('id', $id)->first();
+
+        $email = $user->email;
+        $id = $user->id;
+
+        $this->sendOtp($user);
+
+
+        return view('verifyotpforpassword', )->with('id', $id)->with('email', $email);
+        ;
+    }
+    public function checkotp(Request $req)
+    {
+        $user = (DB::table('email_verifications')->where('otp', $req->otp)->first());
+        if ((DB::table('email_verifications')->where('otp', $req->otp)->first() != null)) {
+            $usermail = $user->email;
+
+            return redirect('/setnewpassword/' . $user->otp)->with('email', $usermail);
+        } else {
+            dd("invalid otp");
+
+        }
+
+
+
+    }
+    public function setnewpassword($id)
+    {
+        $user = (DB::table('email_verifications')->where('otp', $id)->first());
+        $usermail = $user->email;
+        return view('changepassword')->with('email', $usermail);
+    }
+    public function setnewpasswordpost(Request $req)
+    {
+        $password = $req->password;
+        $email = $req->email;
+        $userinfo = (DB::table('users')->where('email', $email)->first());
+        $id = $userinfo->id;
+        $found = user::find($id);
+        if ($found) {
+            $found->password = Hash::make($password);
+            $found->save();
+        }
+
+        // $userinfo->update();
+        return redirect('/')->with('passwordmsg', "Password changed successfully");
+
+    }
+
+    //changepassword
+
+
+
 
     public function sendOtp($user)
     {
