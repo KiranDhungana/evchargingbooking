@@ -193,7 +193,7 @@ class UserController extends Controller
     public function loadDashboard()
     {
         if (Auth::user()) {
-            return view('loginsignup.dashboard');
+            return view('dashboard');
         }
         return redirect('/');
     }
