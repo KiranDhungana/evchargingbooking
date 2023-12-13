@@ -164,7 +164,7 @@ class UserController extends Controller
 
         $data['body'] = 'Your OTP is:- ' . $otp;
 
-        \Illuminate\Support\Facades\Mail::send('mailVerification', ['data' => $data], function ($message) use ($data) {
+        \Illuminate\Support\Facades\Mail::send('loginsignup.mailVerification', ['data' => $data], function ($message) use ($data) {
 
             $message->from("kirandhungana570@gmail.com", "kd");
             $message->to($data['email'])->subject($data['title']);
