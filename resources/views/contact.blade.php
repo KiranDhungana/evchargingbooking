@@ -7,42 +7,7 @@
     <title>Contact Us</title>
     @vite('resources/css/app.css')
 </head>
-<style>
-    .contact-banner{
-        height:300px;
-    }
-    .contact-banner::before {
-    content: '';
-    background: url(https://images.pexels.com/photos/63294/autos-technology-vw-multi-storey-car-park-63294.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 400px;
-    position: absolute;
-    z-index: -9;
-    background-position: center;
-    /* opacity: 0.8; */
-    background-size: cover;
-}
-.contact-banner {
-    font-family: 'circular';
 
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
-.contact-banner h1{
-    color:#00000;
-    font-size:25px;
-    font-weight:800;
-
-}
-.contact-banner p{
-    font-weight:500;
-}
-</style>
 <body>
     <div class="contact-banner">
        

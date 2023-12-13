@@ -4,22 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+<<<<<<< HEAD
+    @vite('resources/css/app.css')
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+=======
      @vite('resources/css/app.css')
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+>>>>>>> ea9acd52f3e32e44c3af4ab4e02cc1e8a9c7ddd1
 </head>
-<style>
-  .profile-container{
 
-    width:80%;
-    margin:2rem auto;
-  }
-  .border-b.border-gray-900\/10.pb-\[32px\] h1{
-    text-align:center;
-  }
-  /* input#username {
-    border-bottom: 1px solid gray;
-} */
-</style>
 <body>
   <div class="profile-container">
   <form>
@@ -80,12 +73,7 @@
           </div>
         </div>
 
-        <div class="sm:col-span-4">
-          <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
-          <div class="mt-2">
-            <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          </div>
-        </div>
+      
 
       
 
@@ -124,7 +112,7 @@
 
   <div class="mt-6 flex items-center justify-end gap-x-6">
     <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-    <button type="submit" class="rounded-md bg-indigo px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+    <button type="submit" class="rounded-md bg-indigo px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo">Save</button>
   </div>
 </form>
   </div>
