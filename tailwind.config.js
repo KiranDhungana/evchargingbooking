@@ -1,9 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  
   content: [
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
+  
   ],
   theme: {
     colors: {
@@ -19,6 +21,7 @@ module.exports = {
       'red':'#FF0000',
       'indigo':'#3F51B5',
       'gray':'#808080',
+      'gray-900':'#212121',
     },
     extend: {},
   },
@@ -26,6 +29,7 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
+ 
 
 ],
 }

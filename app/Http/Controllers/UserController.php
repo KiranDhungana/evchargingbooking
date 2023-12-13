@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Stevebauman\Location\Facades\Location;
-
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
@@ -180,7 +180,10 @@ class UserController extends Controller
 
         $userCredential = $request->only('email', 'password');
         $userData = User::where('email', $request->email)->first();
-        if ($userData && $userData->is_verified == 0) {
+        if ($userData->role == 1) {
+
+            return view('superadmin.homepage');
+        } else if ($userData && $userData->is_verified == 0) {
             $this->sendOtp($userData);
             return redirect("/verification/" . $userData->id);
         } else if (Auth::attempt($userCredential)) {

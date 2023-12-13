@@ -36,8 +36,11 @@ Route::get('/contact', function () {
     return view('contact');
 });
 Route::get('/profile', function () {
-    return view ('profile');
+    return view('profile');
 });
+
+
+
 
 
 
@@ -62,3 +65,10 @@ Route::get('/changepasswordnew/{id}', [UserController::class, 'changepasswordnew
 Route::post('/checkotp', [UserController::class, 'checkotp'])->name('checkotp');
 Route::get('/setnewpassword/{id}', [UserController::class, 'setnewpassword'])->name('setnewpassword');
 Route::post('/setnewpassword', [UserController::class, 'setnewpasswordpost'])->name('setnewpasswordpost');
+
+
+
+
+
+// super admin routing 
+Route::get('/superadmin/dashboard', [UserController::class, 'superadmin'])->name('superadmin')->middleware('super-admin-check');
