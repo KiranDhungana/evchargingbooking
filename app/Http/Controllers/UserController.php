@@ -208,7 +208,7 @@ class UserController extends Controller
 
         $this->sendOtp($user); //OTP SEND
 
-        return view('verification', compact('email'));
+        return view('loginsignup.verification', compact('email'));
     }
 
     public function verifiedOtp(Request $request)
