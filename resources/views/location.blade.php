@@ -13,7 +13,7 @@
     height="450"
     frameborder="0"
     style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?q={{ $currentUserInfo->countryName}},{{ $currentUserInfo->countryCode }}&key=AIzaSyDqRk8ooQjKQgueGWQ485IjEO9t0-Y0CSQ"
+    src="https://www.google.com/maps/embed/v1/place?q=27.6770765,85.3327415&key=AIzaSyDqRk8ooQjKQgueGWQ485IjEO9t0-Y0CSQ"
     allowfullscreen
 ></iframe> --}}
 

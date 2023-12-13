@@ -21,7 +21,7 @@ class UserController extends Controller
     //
     public function loadRegister()
     {
-        return view('register');
+        return view('loginsignup.register');
     }
 
     public function studentRegister(Request $request)
@@ -61,14 +61,14 @@ class UserController extends Controller
         if (Auth::user()) {
             return redirect('/dashboard');
         }
-        return view('login');
+        return view('loginsignup.login');
     }
 
 
     //    forget  password
     public function changepassword()
     {
-        return view('forgetpassword');
+        return view('loginsignup.forgetpassword');
     }
     public function resetpassword(Request $req)
     {
@@ -86,7 +86,7 @@ class UserController extends Controller
             return redirect("/changepasswordnew/" . $userid);
         }
         ;
-        return view('forgetpassword');
+        return view('loginsignup.forgetpassword');
     }
 
     public function changepasswordnew($id)
@@ -99,7 +99,7 @@ class UserController extends Controller
         $this->sendOtp($user);
 
 
-        return view('verifyotpforpassword', )->with('id', $id)->with('email', $email);
+        return view('loginsignup.verifyotpforpassword', )->with('id', $id)->with('email', $email);
         ;
     }
     public function checkotp(Request $req)
@@ -121,7 +121,7 @@ class UserController extends Controller
     {
         $user = (DB::table('email_verifications')->where('otp', $id)->first());
         $usermail = $user->email;
-        return view('changepassword')->with('email', $usermail);
+        return view('loginsignup.changepassword')->with('email', $usermail);
     }
     public function setnewpasswordpost(Request $req)
     {
@@ -193,7 +193,7 @@ class UserController extends Controller
     public function loadDashboard()
     {
         if (Auth::user()) {
-            return view('dashboard');
+            return view('loginsignup.dashboard');
         }
         return redirect('/');
     }
