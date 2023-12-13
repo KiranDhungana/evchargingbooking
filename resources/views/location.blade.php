@@ -52,6 +52,8 @@ Send
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
+    
+
   const successCallback = (position) => {
 
 var lat   =document.getElementById("latitude");

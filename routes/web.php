@@ -33,7 +33,7 @@ Route::get('/otp', function () {
     return view('otp');
 });
 Route::get('/contact', function () {
-    return view ('contact');
+    return view('contact');
 });
 Route::get('/profile', function () {
     return view ('profile');
@@ -54,3 +54,11 @@ Route::get('/test', [UserController::class, 'test'])->name('test');
 Route::get('/location', [UserController::class, 'getUserLocation'])->name('getUserLocation');
 Route::post('/save-location', [UserController::class, 'savelocation'])->name('getUserLocation');
 Route::post('/location', [UserController::class, 'handleData'])->name('store');
+
+// change password
+Route::get('/forgetpassword', [UserController::class, 'changepassword'])->name('changepassword');
+Route::post('/forgetpassword', [UserController::class, 'resetpassword'])->name('resetpassword');
+Route::get('/changepasswordnew/{id}', [UserController::class, 'changepasswordnew'])->name('changepasswordnew');
+Route::post('/checkotp', [UserController::class, 'checkotp'])->name('checkotp');
+Route::get('/setnewpassword/{id}', [UserController::class, 'setnewpassword'])->name('setnewpassword');
+Route::post('/setnewpassword', [UserController::class, 'setnewpasswordpost'])->name('setnewpasswordpost');
