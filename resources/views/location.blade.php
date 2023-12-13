@@ -7,15 +7,19 @@
 </head>
 <body>
   
-{{-- <div class="container">
+ <div class="container">
     <iframe
     width="600"
     height="450"
     frameborder="0"
     style="border:0"
+<<<<<<< HEAD
     src="https://www.google.com/maps/embed/v1/place?q=27.6770765,85.3327415&key=AIzaSyDqRk8ooQjKQgueGWQ485IjEO9t0-Y0CSQ"
+=======
+    src="https://www.google.com/maps/embed/v1/place?q=27.6928433,85.3239504&key=AIzaSyDqRk8ooQjKQgueGWQ485IjEO9t0-Y0CSQ"
+>>>>>>> 42a93db7813014ff677a02df90691c5b5bc61e1b
     allowfullscreen
-></iframe> --}}
+></iframe> 
 
     <h1>How to Get Current User Location with Laravel - ItSolutionStuff.com</h1>
     <button>Send Data</button>
