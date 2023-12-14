@@ -57,7 +57,7 @@ Route::post('/login', [loginsignup::class, 'userLogin'])->name('userLogin');
 
 Route::get('/verification/{id}', [UserController::class, 'verification']);
 Route::post('/verified', [UserController::class, 'verifiedOtp'])->name('verifiedOtp');
-Route::get('/dashboard', [UserController::class, 'loadDashboard']);
+Route::get('/dashboard', [UserController::class, 'loadDashboard'])->middleware('auth');
 
 Route::get('/resend-otp', [UserController::class, 'resendOtp'])->name('resendOtp');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
