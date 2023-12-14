@@ -25,6 +25,7 @@ class UserController extends Controller
         return view('loginsignup.register');
     }
 
+
     public function studentRegister(Request $request)
     {
         $gen = 1;
@@ -60,7 +61,12 @@ class UserController extends Controller
     public function loadLogin()
     {
         if (Auth::user()) {
-            return redirect('/dashboard');
+            if (Auth::user()->role == 1) {
+                return redirect('/superadmin/dashboard');
+            } else {
+                return redirect('/');
+            }
+
         }
         return view('loginsignup.login');
     }
@@ -141,7 +147,7 @@ class UserController extends Controller
 
     }
 
-    //changepassword
+    //changepassword  end  
 
 
 

@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-<<<<<<< HEAD
     @vite('resources/css/app.css')
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-=======
-     @vite('resources/css/app.css')
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
->>>>>>> ea9acd52f3e32e44c3af4ab4e02cc1e8a9c7ddd1
+ 
 </head>
 
 <body>

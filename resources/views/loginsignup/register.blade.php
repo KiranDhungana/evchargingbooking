@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/css/toastr.css" rel="stylesheet" />
     <title>Signup</title>
 </head>
 <style>
@@ -12,6 +14,15 @@
   }
 </style>
 <body>
+  {{-- @if($errors->any())
+    @foreach($errors->all() as $error)
+    <p style="color:red;">{{ $error }}</p>
+    @endforeach
+@endif
+
+@if(Session::has('error'))
+    <p style="color:red;">{{ Session::get('error') }}</p>
+@endif --}}
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
     <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
@@ -26,18 +37,27 @@
         <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">First name</label>
         <div class="mt-2.5">
           <input type="text" name="fname" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        @error('fname')
+                    <div id="emailHelp" style="color:red" class="form-text">{{ $message }}</div>
+                @enderror
         </div>
       </div>
       <div>
         <label for="last-name" class="block text-sm font-semibold leading-6 text-gray-900">Last name</label>
         <div class="mt-2.5">
           <input type="text" name="lname" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          @error('title')
+                    <div id="lname" style="color:red" class="form-text">{{ $message }}</div>
+                @enderror
         </div>
       </div>
       <div class="sm:col-span-2">
         <label for="DOB" class="block text-sm font-semibold leading-6 text-gray-900">DOB</label>
         <div class="mt-2.5">
           <input type="date" name="dob" id="DOB" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+         @error('dob')
+                    <div id="emailHelp" style="color:red" class="form-text">{{ $message }}</div>
+                @enderror
         </div>
       </div>
       <div class="sm:col-span-2">
@@ -62,12 +82,18 @@
         <label for="Address" class="block text-sm font-semibold leading-6 text-gray-900">Address</label>
         <div class="mt-2.5">
           <input type="text" name="address" id="Address" autocomplete="organization" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          @error('address')
+                    <div id="emailHelp" style="color:red" class="form-text">{{ $message }}</div>
+                @enderror
         </div>
       </div>
       <div >
         <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email</label>
         <div class="mt-2.5">
           <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          @error('email')
+                    <div id="emailHelp" style="color:red" class="form-text">{{ $message }}</div>
+                @enderror
         </div>
       </div>
       <div class="sm:col-span-2">
@@ -79,6 +105,9 @@
          
           </div>
           <input type="tel" value="+977" name="pnumber" id="phone-number" autocomplete="tel" class="block w-full rounded-md border-0 px-3.5 py-2  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          @error('pnumber')
+                    <div id="emailHelp" style="color:red" class="form-text">{{ $message }}</div>
+                @enderror
         </div>
       </div>
       
@@ -89,6 +118,9 @@
           </div>
           <div class="mt-2">
             <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          @error('password')
+                    <div id="emailHelp" style="color:red" class="form-text">{{ $message }}</div>
+                @enderror
           </div>
         </div>
       <div class="sm:col-span-2">
@@ -98,6 +130,9 @@
           </div>
           <div class="mt-2">
             <input  name="password_confirmation" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+           @error('password_confirmation')
+                    <div id="emailHelp" style="color:red" class="form-text">{{ $message }}</div>
+                @enderror
           </div>
         </div>
       
@@ -114,9 +149,30 @@
     </p>
   </div>
 </div>
-@if(Session::has('success'))
-        <p style="color:green;">{{ Session::get('success') }}</p>
-    @endif
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+<script>
+  $(document).ready(function() {
+  
+         toastr.options.timeOut = 1000;
+           @if($errors->any())
+    @foreach($errors->all() as $error)
+    toastr.error($error);
+    <p style="color:red;">{{ $error }}</p>
+    @endforeach
+@endif
+        //  @if (Session::has('error'))
+        //      toastr.error('{{ Session::get('error') }}');
+        //  @elseif(Session::has('success'))
+        //      toastr.success('{{ Session::get('success') }}');
+        //  @endif
+  }
+  )
+
+</script>
 
 </body>
 </html>

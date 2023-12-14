@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\loginsignup;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -21,10 +22,19 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/register', [UserController::class, 'loadRegister']);
 Route::post('/register', [UserController::class, 'studentRegister'])->name('studentRegister');
-Route::get('/', [UserController::class, 'loadLogin']);
-Route::get('/login', function () {
-    return redirect('/');
+// Route::get('/', [UserController::class, 'loadLogin']);
+Route::get('/', function () {
+    return view('homepage.landingpage');
 });
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+
+Route::get('/login', [UserController::class, 'loadLogin']);
+
+
 Route::get('/forgetpassword', function () {
     return view('forgetpassword');
 });
@@ -80,7 +90,8 @@ Route::post('/setnewpassword', [UserController::class, 'setnewpasswordpost'])->n
 
 
 Route::get('/superadmin/dashboard', function () {
-    return view('superadmin.homepage');
+    $data = user::all();
+    return view('superadmin.homepage')->with('users', $data);
 })->name('login')->middleware('super-admin-check');
 
 
