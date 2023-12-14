@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\loginsignup;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -89,7 +90,8 @@ Route::post('/setnewpassword', [UserController::class, 'setnewpasswordpost'])->n
 
 
 Route::get('/superadmin/dashboard', function () {
-    return view('superadmin.homepage');
+    $data = user::all();
+    return view('superadmin.homepage')->with('users', $data);
 })->name('login')->middleware('super-admin-check');
 
 // super admin routing 

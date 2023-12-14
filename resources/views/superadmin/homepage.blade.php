@@ -1330,8 +1330,17 @@
       I am kian
     
 <button type="button" onclick="window.location='{{ url("logout") }}'">Button</button>
+ @foreach ($users as $user)
+  <p>
+   {{
+    $user->lname
+   }}
+  </p>
+ 
+     
+ @endforeach    
+</main>
     
-    </main>
   </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>

@@ -26,14 +26,15 @@ class loginsignup extends Controller
         $userData = User::where('email', $request->email)->first();
         // dd($userData->role);
         if (Auth::attempt($userCredential) && $userData->role == 1 && $userData->is_verified == 1) {
-            return redirect('/superadmin/dashboard');
+            $data = user::all();
+            return redirect('/superadmin/dashboard')->with('users', $data);
 
             // return view('superadmin.homepage');
         } else if ($userData && $userData->is_verified == 0) {
             $this->sendOtp($userData);
             return redirect("/verification/" . $userData->id);
         } else if (Auth::attempt($userCredential) && $userData->is_verified == 1) {
-            return redirect('/dashboard');
+            return redirect('/')->with("info", $userCredential);
         } else {
             return back()->with('error', 'Email or Password is incorrect');
         }

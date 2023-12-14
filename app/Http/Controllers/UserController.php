@@ -61,7 +61,12 @@ class UserController extends Controller
     public function loadLogin()
     {
         if (Auth::user()) {
-            return redirect('/dashboard');
+            if (Auth::user()->role == 1) {
+                return redirect('/superadmin/dashboard');
+            } else {
+                return redirect('/');
+            }
+
         }
         return view('loginsignup.login');
     }
