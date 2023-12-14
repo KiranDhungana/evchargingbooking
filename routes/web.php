@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\loginsignup;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,20 +38,25 @@ Route::get('/contact', function () {
     return view('contact');
 });
 Route::get('/profile', function () {
-    return view ('profile');
+    return view('profile');
 });
 Route::get('/superadmin', function () {
     return view ('superadmin');
 });
 
 Route::get('/home', function () {
-    return view ('homepage/landingpage');
+    return view('homepage/landingpage');
 });
 
+// Auth::route();
+
+Route::get('/homepage', function () {
+    return view('homepage.landingpage');
+})->name('login');
 
 
 
-Route::post('/login', [UserController::class, 'userLogin'])->name('userLogin');
+Route::post('/login', [loginsignup::class, 'userLogin'])->name('userLogin');
 
 Route::get('/verification/{id}', [UserController::class, 'verification']);
 Route::post('/verified', [UserController::class, 'verifiedOtp'])->name('verifiedOtp');
@@ -69,3 +76,11 @@ Route::get('/changepasswordnew/{id}', [UserController::class, 'changepasswordnew
 Route::post('/checkotp', [UserController::class, 'checkotp'])->name('checkotp');
 Route::get('/setnewpassword/{id}', [UserController::class, 'setnewpassword'])->name('setnewpassword');
 Route::post('/setnewpassword', [UserController::class, 'setnewpasswordpost'])->name('setnewpasswordpost');
+
+
+
+Route::get('/superadmin/dashboard', function () {
+    return view('superadmin.homepage');
+})->name('login')->middleware('super-admin-check');
+
+// super admin routing 
