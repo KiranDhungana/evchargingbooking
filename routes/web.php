@@ -45,7 +45,7 @@ Route::get('/superadmin', function () {
 });
 
 Route::get('/home', function () {
-    return view('homepage/landingpage');
+    return view('homepage.landingpage');
 });
 
 // Auth::route();
