@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\loginsignup;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,16 +42,18 @@ Route::get('/profile', function () {
 });
 
 Route::get('/home', function () {
-    return view ('homepage/landingpage');
+    return view('homepage/landingpage');
 });
 
+// Auth::route();
+
+Route::get('/homepage', function () {
+    return view('homepage.landingpage');
+})->name('login');
 
 
 
-
-
-
-Route::post('/login', [UserController::class, 'userLogin'])->name('userLogin');
+Route::post('/login', [loginsignup::class, 'userLogin'])->name('userLogin');
 
 Route::get('/verification/{id}', [UserController::class, 'verification']);
 Route::post('/verified', [UserController::class, 'verifiedOtp'])->name('verifiedOtp');
@@ -72,7 +76,8 @@ Route::post('/setnewpassword', [UserController::class, 'setnewpasswordpost'])->n
 
 
 
-
+Route::get('/superadmin/dashboard', function () {
+    return view('superadmin.homepage');
+})->name('login')->middleware('super-admin-check');
 
 // super admin routing 
-Route::get('/superadmin/dashboard', [UserController::class, 'superadmin'])->name('superadmin')->middleware('super-admin-check');
