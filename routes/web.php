@@ -83,4 +83,9 @@ Route::get('/superadmin/dashboard', function () {
     return view('superadmin.homepage');
 })->name('login')->middleware('super-admin-check');
 
+
+Route::get('/superadmin', function () {
+    return view('superadmin.homepage');
+});
+
 // super admin routing 
