@@ -32,7 +32,7 @@ class loginsignup extends Controller
         } else if ($userData && $userData->is_verified == 0) {
             $this->sendOtp($userData);
             return redirect("/verification/" . $userData->id);
-        } else if (Auth::attempt($userCredential) && $userData->role == 1) {
+        } else if (Auth::attempt($userCredential) && $userData->is_verified == 1) {
             return redirect('/dashboard');
         } else {
             return back()->with('error', 'Username & Password is incorrect');

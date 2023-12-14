@@ -41,11 +41,11 @@ Route::get('/profile', function () {
     return view('profile');
 });
 Route::get('/superadmin', function () {
-    return view ('superadmin');
+    return view('superadmin');
 });
 
 Route::get('/home', function () {
-    return view('homepage/landingpage');
+    return view('homepage.landingpage');
 });
 
 // Auth::route();
@@ -60,7 +60,7 @@ Route::post('/login', [loginsignup::class, 'userLogin'])->name('userLogin');
 
 Route::get('/verification/{id}', [UserController::class, 'verification']);
 Route::post('/verified', [UserController::class, 'verifiedOtp'])->name('verifiedOtp');
-Route::get('/dashboard', [UserController::class, 'loadDashboard']);
+Route::get('/dashboard', [UserController::class, 'loadDashboard'])->middleware('auth');
 
 Route::get('/resend-otp', [UserController::class, 'resendOtp'])->name('resendOtp');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
