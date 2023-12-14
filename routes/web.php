@@ -21,10 +21,19 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/register', [UserController::class, 'loadRegister']);
 Route::post('/register', [UserController::class, 'studentRegister'])->name('studentRegister');
-Route::get('/', [UserController::class, 'loadLogin']);
-Route::get('/login', function () {
-    return redirect('/');
+// Route::get('/', [UserController::class, 'loadLogin']);
+Route::get('/', function () {
+    return view('homepage.landingpage');
 });
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+
+Route::get('/login', [UserController::class, 'loadLogin']);
+
+
 Route::get('/forgetpassword', function () {
     return view('forgetpassword');
 });

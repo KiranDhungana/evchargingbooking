@@ -25,6 +25,7 @@ class UserController extends Controller
         return view('loginsignup.register');
     }
 
+
     public function studentRegister(Request $request)
     {
         $gen = 1;
@@ -141,7 +142,7 @@ class UserController extends Controller
 
     }
 
-    //changepassword
+    //changepassword  end  
 
 
 

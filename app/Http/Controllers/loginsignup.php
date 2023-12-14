@@ -35,7 +35,7 @@ class loginsignup extends Controller
         } else if (Auth::attempt($userCredential) && $userData->is_verified == 1) {
             return redirect('/dashboard');
         } else {
-            return back()->with('error', 'Username & Password is incorrect');
+            return back()->with('error', 'Email or Password is incorrect');
         }
     }
 }
