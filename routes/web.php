@@ -38,6 +38,9 @@ Route::get('/contact', function () {
 Route::get('/profile', function () {
     return view ('profile');
 });
+Route::get('/superadmin', function () {
+    return view ('superadmin');
+});
 
 Route::get('/home', function () {
     return view ('homepage/landingpage');
