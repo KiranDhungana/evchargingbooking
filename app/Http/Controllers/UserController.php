@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
+
 use Stevebauman\Location\Facades\Location;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Carbon\Carbon;
@@ -14,7 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-use Mail;
+
 
 class UserController extends Controller
 {
@@ -171,7 +173,7 @@ class UserController extends Controller
 
         $data['body'] = 'Your OTP is:- ' . $otp;
 
-        \Illuminate\Support\Facades\Mail::send('loginsignup.mailVerification', ['data' => $data], function ($message) use ($data) {
+        Mail::send('loginsignup.mailVerification', ['data' => $data], function ($message) use ($data) {
 
             $message->from("kirandhungana570@gmail.com", "kd");
             $message->to($data['email'])->subject($data['title']);
@@ -227,6 +229,8 @@ class UserController extends Controller
 
         }
     }
+
+
 
     public function resendOtp(Request $request)
     {
@@ -286,4 +290,53 @@ class UserController extends Controller
         return view('profile')->witH('userinfo', $user);
 
     }
+
+    // mail sender 
+    public function mailsend(Request $req)
+    {
+        // dd($req);
+        $validated = $req->validate([
+            'name' => 'required',
+            'email' => 'required',
+
+            'message' => 'required',
+            'subject' => 'required',
+
+        ]);
+        $fromemail = $req['email'];
+        $fromname = $req['name'];
+        $subj = $req['subject'];
+        $message = $req['message'];
+        $toname = 'Barefoot';
+        $to_name = 'barefoot';
+        $to_email = 'kirandhungana570@gmail.com';
+        // $data = array('name' => "Cloudways (sender_name)", "body" => 'A test mail');
+        $data = [
+            'name' => $fromname,
+            'email' => $fromemail,
+            'msg' => $message,
+            'subj' => $subj,
+
+        ];
+
+
+
+        // $user['to'] = 'barefootmartialarts@gmail.com';
+        // $user['sub'] = $subj;
+        // $user['from'] = $email;
+        Mail::send('mail', $data, function ($message) use ($to_email, $toname, $fromemail, $fromname, $subj) {
+
+            $message->from($fromemail, $fromname);
+            $message->to($to_email, $toname);
+            $message->subject($subj);
+        });
+        // Mail::send('contactus', $data, function ($mail) use ($user) {
+        //     $mail->from($user['from']);
+        //     $mail->subject($user['sub']);
+        //     $mail->to($user['to']);
+        // });
+
+        return redirect('/contact')->with('sentmsg', 'Message sent successfully,We will contact you shortly');
+    }
+
 }
