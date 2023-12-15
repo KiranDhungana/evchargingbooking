@@ -113,4 +113,4 @@ Route::get('/superadmin/postmanagement', function () {
 // profile routing 
 Route::get("/profile/{id}/{name}", [UserController::class, 'userprofile'])->name('userprofile')->middleware('auth');
 
-// upload image 
+Route::Post("/contact", [UserController::class, 'mailsend'])->name('userprofile');
