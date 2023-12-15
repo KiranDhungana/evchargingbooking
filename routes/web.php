@@ -105,6 +105,10 @@ Route::get('/superadmin', function () {
     return view('superadmin.homepage');
 });
 
+Route::get('/superadmin/postmanagement', function () {
+    return view('superadmin.postmanagement');
+});
+
 
 // profile routing 
 Route::get("/profile/{id}/{name}", [UserController::class, 'userprofile'])->name('userprofile')->middleware('auth');
