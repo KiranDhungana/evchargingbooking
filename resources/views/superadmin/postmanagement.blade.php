@@ -4,7 +4,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/css/toastr.css" rel="stylesheet" />
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
   <title>SuperAdmin</title>
@@ -1343,94 +1342,70 @@
       <div class="all-user">
         
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg my-5">
-  <h1 class="flex items-center text-4xl font-extrabold py-2" style="color:green;">Users</h1>
+
+
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+<h1 class="flex items-center text-4xl font-extrabold py-2" style="color:green;">KYC Documents</h1>
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-               <th scope="col" class="px-6 py-3">
-                    S.NO
+                <th scope="col" class="px-6 py-3">
+                    User Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Username
+                    File
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Email
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Verified State
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Gender
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Address
+                    Action
                 </th>
             </tr>
         </thead>
         <tbody>
-          @php
-          $j = 1;
-      @endphp
-
-          @foreach ($user as $i)
-          @if ($i->email=='earninfo06@gmail.com')
-              @continue
-          @else
-                 <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                {{$j}}
-            </th>
-            <td class="px-6 py-4">
-              {{$i->fname}} {{$i->lname}}
-            </td>
-              <td  class="px-6 py-4">
-                {{$i->email}}
-            </td>
-            <td class="px-6 py-4">
-                 @if ($i->is_verified==1)
-                     <img class="h-[15px]" src="https://p7.hiclipart.com/preview/286/771/782/check-mark-computer-icons-clip-art-blue-checkmark.jpg" alt="">
-                 @else
-                     
-                     <img class="h-[15px]" src="https://toppng.com/uploads/preview/red-cross-mark-download-png-red-cross-check-mark-11562934675swbmqcbecx.png" alt="">
-                 @endif
-            </td>
-            <td class="px-6 py-4">
-              @if ($i->is_verified==1)
-              <img class="h-[15px]" src="https://p7.hiclipart.com/preview/286/771/782/check-mark-computer-icons-clip-art-blue-checkmark.jpg" alt="">
-             @else
-              
-              <img class="h-[15px]" src="https://toppng.com/uploads/preview/red-cross-mark-download-png-red-cross-check-mark-11562934675swbmqcbecx.png" alt="">
-             @endif
-            </td>
-            <td class="px-6 py-4">
-                {{-- <a href="/delete/{{$i->fname}}/{{$i->id}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a> --}}
-          <form method="POST" action="/delete/{{$i->fname}}/{{$i->id}}">
-            @csrf
-    <input type="hidden" name="id" >
-    {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
-    <button type="submit">Delete</button>
-</form>
-              </td>
-        </tr>
-          @endif
-        
-       
-         @php
-          $j = $j+1;
-      @endphp
-          @endforeach
-          
+            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> View Document</a>
+                </td>
+                
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Verify</a>
+                </td>
+                
+            </tr>
+            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> View Document</a>
+                </td>
+                
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Verify</a>
+                </td>
+                
+            </tr>
+            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> View Document</a>
+                </td>
+                
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Verify</a>
+                </td>
+                
+            </tr>
          
-           
-            
         </tbody>
     </table>
 </div>
-
-
-
-
 
 
       </div>
@@ -1438,23 +1413,6 @@
     
   </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
-<script>
-     $(document).ready(function() {
-     
-            toastr.options.timeOut = 1000;
-            @if (Session::has('error'))
-                toastr.error('{{ Session::get('error') }}');
-            @elseif(Session::has('deletemsg'))
-                toastr.success('{{ Session::get('deletemsg') }}');
-            @endif
-     }
-     )
-
-</script>
 </body>
 
 </html>
