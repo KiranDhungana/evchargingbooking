@@ -278,4 +278,12 @@ class UserController extends Controller
 
         dd($request);
     }
+
+    public function userprofile($id)
+    {
+        $user = User::find($id);
+
+        return view('profile')->witH('userinfo', $user);
+
+    }
 }

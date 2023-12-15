@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,11 @@ Route::post('/register', [UserController::class, 'studentRegister'])->name('stud
 Route::get('/', function () {
     return view('homepage.landingpage');
 });
+
+Route::get('/logout', function () {
+    Session::flush();
+    redirect('/');
+})->name('logout');
 
 Route::get('/contact', function () {
     return view('contact');
@@ -87,7 +93,7 @@ Route::post('/checkotp', [UserController::class, 'checkotp'])->name('checkotp');
 Route::get('/setnewpassword/{id}', [UserController::class, 'setnewpassword'])->name('setnewpassword');
 Route::post('/setnewpassword', [UserController::class, 'setnewpasswordpost'])->name('setnewpasswordpost');
 
-
+// super admin routing 
 
 Route::get('/superadmin/dashboard', function () {
     $data = user::all();
@@ -99,4 +105,8 @@ Route::get('/superadmin', function () {
     return view('superadmin.homepage');
 });
 
-// super admin routing 
+
+// profile routing 
+Route::get("/profile/{id}/{name}", [UserController::class, 'userprofile'])->name('userprofile')->middleware('auth');
+
+// upload image 
