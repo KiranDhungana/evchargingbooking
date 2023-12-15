@@ -27,7 +27,7 @@ class loginsignup extends Controller
         // dd($userData->role);
         if (Auth::attempt($userCredential) && $userData->role == 1 && $userData->is_verified == 1) {
             $data = user::all();
-            return redirect('/superadmin/dashboard')->with('users', $data);
+            return redirect('/superadmin/dashboard')->with("user", $data);
 
             // return view('superadmin.homepage');
         } else if ($userData && $userData->is_verified == 0) {

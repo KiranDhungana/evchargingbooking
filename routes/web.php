@@ -97,8 +97,11 @@ Route::post('/setnewpassword', [UserController::class, 'setnewpasswordpost'])->n
 
 Route::get('/superadmin/dashboard', function () {
     $data = user::all();
-    return view('superadmin.homepage')->with('users', $data);
+    return view('superadmin.homepage')->with('user', $data);
 })->name('login')->middleware('super-admin-check');
+
+// delete user 
+Route::post("/delete/{id}/{name}", [UserController::class, 'deleteuser'])->name('deleteuser');
 
 
 Route::get('/superadmin', function () {

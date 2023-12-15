@@ -64,7 +64,8 @@ class UserController extends Controller
     {
         if (Auth::user()) {
             if (Auth::user()->role == 1) {
-                return redirect('/superadmin/dashboard');
+                $data = User::all();
+                return redirect('/superadmin/dashboard')->with("user", $data);
             } else {
                 return redirect('/');
             }
@@ -287,7 +288,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('profile')->witH('userinfo', $user);
+        return view('profile')->with('userinfo', $user);
 
     }
 
@@ -337,6 +338,15 @@ class UserController extends Controller
         // });
 
         return redirect('/contact')->with('sentmsg', 'Message sent successfully,We will contact you shortly');
+    }
+
+    //  delete user 
+    public function deleteuser($name, $id)
+    {
+        // dd($id);
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/superadmin/dashboard')->with('deletemsg', "User Deleted Sucessfully");
     }
 
 }
