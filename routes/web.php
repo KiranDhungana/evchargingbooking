@@ -107,12 +107,16 @@ Route::post("/delete/{id}/{name}", [UserController::class, 'deleteuser'])->name(
 Route::get('/superadmin', function () {
     return view('superadmin.homepage');
 });
+<<<<<<< HEAD
 Route::get('/profile1', function () {
     return view('profile1');
 });
 Route::get('/addlocation', function () {
     return view('addlocation');
 });
+=======
+
+>>>>>>> 730ba9e1e3c1190b47de7899579eb5fb8c84cb7e
 
 Route::get('/superadmin/postmanagement', function () {
     return view('superadmin.postmanagement');
@@ -120,6 +124,7 @@ Route::get('/superadmin/postmanagement', function () {
 
 
 // profile routing 
+Route::get("/setting/{id}/{name}", [UserController::class, 'userprofilesetting'])->name('userprofilesetting')->middleware('auth');
 Route::get("/profile/{id}/{name}", [UserController::class, 'userprofile'])->name('userprofile')->middleware('auth');
 
 Route::Post("/contact", [UserController::class, 'mailsend'])->name('userprofile');

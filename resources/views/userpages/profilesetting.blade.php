@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  @include('reusecomp.navbar')
   <div class="profile-container">
   <form>
   <div class="space-y-[16px]">

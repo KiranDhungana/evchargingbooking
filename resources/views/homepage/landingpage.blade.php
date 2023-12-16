@@ -14,6 +14,8 @@
 
 <body>
 
+  @include('reusecomp.navbar')
+{{-- 
 
 <nav class="bg-white  bord$userCredentialer-gray-200 dark:bg-gray-900">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -68,10 +70,10 @@ Add Parking
 <!-- Dropdown menu -->
 <div id="dropdownAvatar" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
     <div class="px-4 pt-3 text-sm text-gray-900 dark:text-white">
-        <a href="" style="color:blue;">
+        <a href="/profile/{{Auth::user()->id}}/{{Auth::user()->fname}}" style="color:blue;">
         <div>{{Str::title(Auth::user()->fname) }} {{ Str::title(Auth::user()->lname)}}</div>
       {{-- <div class="font-medium truncate">name@flowbite.com</div> --}}
-        </a>
+        {{-- </a>
       
     </div>
     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
@@ -80,19 +82,19 @@ Add Parking
         <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact Support</a>
       </li>
       <li>
-        <a href="/profile/{{Auth::user()->id}}/{{Auth::user()->fname}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+        <a href="/setting/{{Auth::user()->id}}/{{Auth::user()->fname}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
       </li>
     </ul>
     <div class="py-2">
       <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
     </div>
-</div>
+</div> --}}
 
 
 
 
 
-
+{{-- 
           </li>
 @else
   <li>
@@ -106,7 +108,7 @@ Add Parking
       </ul>
     </div>
   </div>
-</nav>
+</nav> --}} 
 
 <div class="body-container">
     <div class="main">
