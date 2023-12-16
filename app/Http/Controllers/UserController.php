@@ -284,12 +284,19 @@ class UserController extends Controller
         dd($request);
     }
 
+    public function userprofilesetting($id)
+    {
+        $user = User::find($id);
+
+        return view('userpages.profilesetting')->with('userinfo', $user);
+
+    }
+
     public function userprofile($id)
     {
         $user = User::find($id);
 
-        return view('profile')->with('userinfo', $user);
-
+        return view('userpages.userprofile')->with('profileinfo', $user);
     }
 
     // mail sender 

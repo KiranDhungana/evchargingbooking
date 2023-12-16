@@ -101,16 +101,17 @@
 }
 </style>
 <body>
+    @include('reusecomp.navbar')
     <div class="profile-container">
 <div class="container">
     <div class="card">
       <div class="profile-picture">
         <img src="https://img.freepik.com/premium-photo/cartoon-game-avatar-logo-gaming-brand_902820-465.jpg" alt="Profile Picture">
       </div>
-      <h2 class="name">Kiran Hency</h2>
-      <h3 class="phonenumber">9862722281 |</h3>
-      <p class="email">kireyhency@gmail.com</p>
-      <a href="#" class="button">Edit Profile</a>
+      <h2 class="name">{{Str::title(Auth::user()->fname) }} {{ Str::title(Auth::user()->lname)}}</h2>
+      <h3 class="phonenumber">{{(Auth::user()->pnumber)  }}|</h3>
+      <p class="email">{{(Auth::user()->email)  }}</p>
+      <a href="/setting/{{Auth::user()->id}}/{{Auth::user()->fname}}" class="button">Edit Profile</a>
     </div>
 </div>
 
