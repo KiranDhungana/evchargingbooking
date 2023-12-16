@@ -110,6 +110,9 @@ Route::get('/superadmin', function () {
 Route::get('/profile1', function () {
     return view('profile1');
 });
+Route::get('/addlocation', function () {
+    return view('addlocation');
+});
 
 Route::get('/superadmin/postmanagement', function () {
     return view('superadmin.postmanagement');
