@@ -3,103 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite('resources/css/app.css')
     <script src="https://cdn.tailwindcss.com"></script>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 
     <title>Document</title>
 </head>
-<style>
-    /* .profile-container .profile-picture img{
-        width:300px;
 
-    } */
-    .profile-container{
-        display:flex;
-    }
-    body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-    width:30% !important;
-  max-width: 500px;
-  margin: 0;
-  padding: 20px;
-}
-
-.card {
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.profile-picture {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 20px;
-}
-
-.profile-picture img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.name {
-  font-size: 24px;
-  margin: 0;
-}
-
-.phonenumber {
-  font-size: 18px;
-  color: #777;
-  margin: 10px 0;
-}
-
-.email {
-  color: #555;
-  margin: 10px 0;
-}
-
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.button:hover {
-  background-color: #0056b3;
-}
-
-.profile-right-section{
-    width:60%;
-}
-.profile-right-section .mini-nav{
-    margin:1rem 0;
-}
-.profile-right-section .mini-card{
-    margin:10px;
-}
-.profile-post-cards{
-    display:flex;
-    flex-wrap:wrap;
-}
-.profile-post-cards .max-w-sm{
-   max-width:17rem;
-}
-</style>
 <body>
     @include('reusecomp.navbar')
     <div class="profile-container">
