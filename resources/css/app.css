@@ -288,3 +288,30 @@ margin: 2rem auto;
 padding: 3rem;
 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+
+.parking_container{
+  width: 80%;
+  margin:2rem auto;
+}
+.parking_container .parking_card{
+  margin:2rem auto;
+}
+.parking_container #Capa_1{
+  width:2rem;
+  height:20px;
+}
+.parking_container .parking_card .location_box{
+  display:flex;
+}
+.parking_details{
+  width:80%;
+  margin: 5rem auto;
+}
+.parking_details .parking_paramaters{
+  
+  margin-bottom: 2rem;
+}
+.parking_details .parking_paramaters kbd{
+  margin:5px;
+}

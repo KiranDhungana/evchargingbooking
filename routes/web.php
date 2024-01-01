@@ -107,10 +107,12 @@ Route::post("/delete/{id}/{name}", [UserController::class, 'deleteuser'])->name(
 Route::get('/superadmin', function () {
     return view('superadmin.homepage');
 });
-<<<<<<< HEAD
 
 Route::get('/post', function () {
     return view('post');
+});
+Route::get('/postDetails', function () {
+    return view('postDetails');
 });
 Route::get('/profile1', function () {
     return view('profile1');
@@ -119,8 +121,6 @@ Route::get('/addlocation', function () {
     return view('addlocation');
 });
 
-=======
->>>>>>> 8521f88d8d1ee7111eb114625f11d5add5572e81
 
 Route::get('/superadmin/postmanagement', function () {
     return view('superadmin.postmanagement');

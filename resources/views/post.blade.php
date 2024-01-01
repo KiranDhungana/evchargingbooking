@@ -8,24 +8,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </head>
-<style>
-    .container{
-        width: 80%;
-        margin:2rem auto;
-    }
-    .parking_card{
-        margin:2rem auto;
-    }
-    #Capa_1{
-        width:2rem;
-        height:20px;
-    }
-    .parking_card .location_box{
-        display:flex;
-    }
-</style>
 <body>
-    <div class="container">
+    <div class="parking_container">
 <div class="parking_card">
      <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row py-5 px-5 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
     <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="https://cdn.vox-cdn.com/thumbor/okY54qvEzKcEa2RpTNu84xArEFI=/0x0:5464x3640/1200x675/filters:focal(2295x1383:3169x2257)/cdn.vox-cdn.com/uploads/chorus_image/image/72262173/GettyImages_1354859135__1_.0.jpg" alt="">
