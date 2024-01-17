@@ -296,8 +296,10 @@ class UserController extends Controller
     public function userprofile($id)
     {
         $user = User::find($id);
+        $post = Post::where('uid', '=', $id)->get();
 
-        return view('userpages.userprofile')->with('profileinfo', $user);
+
+        return view('userpages.userprofile')->with('profileinfo', $user)->with('userpost', $post);
     }
 
     // mail sender 
@@ -361,6 +363,13 @@ class UserController extends Controller
     public function postspace()
     {
         return view('userpages/addlocation');
+    }
+
+    public function viewuserpost($pid)
+    {
+        // dd($pid);
+        $postinfo = post::find($pid);
+        dd($postinfo);
     }
     public function postspacetodb(Request $req)
     {

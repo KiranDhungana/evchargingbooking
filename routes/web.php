@@ -136,4 +136,6 @@ Route::post("/postspace", [UserController::class, 'postspacetodb'])->name('posts
 Route::get("/setting/{id}/{name}", [UserController::class, 'userprofilesetting'])->name('userprofilesetting')->middleware('auth');
 Route::get("/profile/{id}/{name}", [UserController::class, 'userprofile'])->name('userprofile')->middleware('auth');
 
+Route::get("/posts/{pid}/{district}/{name}", [UserController::class, 'viewuserpost'])->name('viewuserpost')->middleware('auth');
+
 Route::Post("/contact", [UserController::class, 'mailsend'])->name('userprofile');
