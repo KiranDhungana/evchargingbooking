@@ -49,7 +49,7 @@
   <a href="/posts/{{$post['pid'] }}/{{$post['district']}}/{{Auth::user()->fname}}">
    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mini-card">
       
-            <img class="rounded-t-lg" src="https://sensordynamics.com.au/wp-content/uploads/2023/06/smart-parking.jpeg" alt="" />
+            <img class="rounded-t-lg" src="{{asset('storage/images/'.str_replace(['[', ']','"'], '',$post['path']))}}" alt="img" />
         
         <div class="p-5">
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{$post['description']}}</p>
