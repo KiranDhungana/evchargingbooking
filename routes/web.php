@@ -112,6 +112,11 @@ Route::get('/superadmin/postmanagement', function () {
     return view('superadmin.postmanagement');
 });
 
+// post add routing 
+
+Route::get("/postspace", [UserController::class, 'postspace'])->name('postspace')->middleware('auth');
+Route::post("/postspace", [UserController::class, 'postspacetodb'])->name('postspacetodb')->middleware('auth');
+
 
 // profile routing 
 Route::get("/setting/{id}/{name}", [UserController::class, 'userprofilesetting'])->name('userprofilesetting')->middleware('auth');

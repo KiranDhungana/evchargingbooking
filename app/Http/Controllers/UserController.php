@@ -10,6 +10,7 @@ use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Post;
 
 use App\Models\EmailVerification;
 use Illuminate\Support\Facades\Hash;
@@ -356,4 +357,41 @@ class UserController extends Controller
         return redirect('/superadmin/dashboard')->with('deletemsg', "User Deleted Sucessfully");
     }
 
+    // post space 
+    public function postspace()
+    {
+        return view('userpages/addlocation');
+    }
+    public function postspacetodb(Request $req)
+    {
+
+        // dd($req);
+        $post = new Post;
+
+        // $fileName = time() . '.' . $req->image->extension();
+        // $req->image->storeAs('public/images', $fileName);
+        $fileNames = [];
+        if ($req->file('file'))
+            foreach ($req->file('file') as $img) {
+                $imgname = $img->getClientOriginalName();
+                $img->storeAs('public/images', $imgname);
+                $fileNames[] = $imgname;
+            }
+        $uplo_file = json_encode($fileNames);
+        $post->path = $uplo_file;
+        $post->uid = $req['uid'];
+        $post->latitude = $req['latitude'];
+        $post->longitude = $req['longitude'];
+        $post->fromdate = Carbon::parse($req['start'])->format('Y/m/d');
+        $post->todate = Carbon::parse($req['end'])->format('Y/m/d');
+
+        $post->district = $req['district'];
+        $post->municipility = $req['district'];
+        $post->street = $req['street'];
+        $post->space = $req['total_space'];
+        $post->shortterm = 1;
+        $post->save();
+        // dd($req);
+        return view('userpages/addlocation');
+    }
 }
